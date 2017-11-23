@@ -27,21 +27,31 @@ class App extends Component {
     this.setState({
       persons: [
         {name: event.target.value, age: 28},
-        {name: 'Jaja', age: 26},
-        {name: 'Hey', age: 27}
+        {name: event.target.value, age: 26},
+        {name: event.target.value, age: 27}
       ]
 
     });
   };
 
   render() {
+    
+    // inline style in JSX
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor:'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm Jose</h1>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age="29"/>
+        <button style={style} onClick={this.switchNameHandler}>Switch Name</button>
+        <Person name={this.state.persons[0].name} age="29" changed={this.nameChangeHandler}/>
         <Person name={this.state.persons[1].name} age="29" changed={this.nameChangeHandler}/>
-        <Person name={this.state.persons[2].name} age="29"/>
+        <Person name={this.state.persons[2].name} age="29" changed={this.nameChangeHandler}/>
       </div>
 
     );
