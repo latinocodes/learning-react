@@ -12,12 +12,11 @@ class App extends Component {
   }
 
   switchNameHandler = () => {
-    console.log("Was clicked!");
     this.setState({
       persons: [
         {name: 'PEPE', age: 28},
         {name: 'Joe', age: 26},
-        {name: 'Amigo', age: 27}
+        {name: 'Amigo', age: 3}
       ]
     });
 
@@ -35,7 +34,7 @@ class App extends Component {
   };
 
   render() {
-    
+
     // inline style in JSX
     const style = {
       backgroundColor: 'white',
@@ -49,9 +48,9 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm Jose</h1>
         <button style={style} onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age="29" changed={this.nameChangeHandler}/>
-        <Person name={this.state.persons[1].name} age="29" changed={this.nameChangeHandler}/>
-        <Person name={this.state.persons[2].name} age="29" changed={this.nameChangeHandler}/>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} changed={this.nameChangeHandler}/>
+        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} changed={this.nameChangeHandler}/>
+        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} changed={this.nameChangeHandler}/>
       </div>
 
     );
